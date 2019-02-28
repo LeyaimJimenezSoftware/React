@@ -13,6 +13,9 @@ import XSS from './Xss/Xss'
 import { notes1, notes2 } from './Notes/data'
 import './App.css';
 import Xss from './Xss/Xss';
+import Calculator from './Calculator/Calculator'
+import Person from './Person/Person'
+import CalculatorJuve from "./Calculatorjuve/Calculatorjuve"
 
 class App extends Component {
  
@@ -26,13 +29,15 @@ class App extends Component {
 
   render() {
     return (
+      <>
       <div className="App">
         <Header title='Hola Mundo'/>
         <Content>
-         <Xss></Xss>
+          <Person></Person>
         </Content>
         <Footer/>
       </div>
+      </>
     );
   }
 }
