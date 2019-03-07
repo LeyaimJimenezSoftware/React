@@ -11,8 +11,4 @@ const Content = props => {
     )
 }
 
-Content.PropTypes = {
-  children:  PropTypes.element.isRequired
-}
-
 export default Content

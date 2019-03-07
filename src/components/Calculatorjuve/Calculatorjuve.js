@@ -52,8 +52,10 @@ class Calculatorjuve extends Component{
         </select>
         <p>Numero 1</p>
         <input name='number1'type='text' onChange={this.handleOnChange}></input>
-        <label>Numero 2</label>
+        <p>Numero 2</p>
         <input name='number2' type='text' onChange={this.handleOnChange}></input>
+        <br/>
+        <br/>
         <button onClick={this.handleResult}>OK</button>
         <p name='result'>{this.state.result}</p>
       </div>

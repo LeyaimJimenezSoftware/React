@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { element } from 'prop-types'
 import Header from '../shared/components/layout/Header'
 import Todo from './Todo/Todo'
 import Timer from './Pomodoro/Timer'
@@ -17,29 +18,19 @@ import Calculator from './Calculator/Calculator'
 import Person from './Person/Person'
 import CalculatorJuve from "./Calculatorjuve/Calculatorjuve"
 
-class App extends Component {
- 
-  //componentDidMount(){
-  //setTimeout(() => {
-  //  this.setState({
-  //      notes: [...this.state.notes, ...notes2]
-  //    })
-  //  },10000) 
-  //}
+const App = props => ( 
 
-  render() {
-    return (
-      <>
-      <div className="App">
-        <Header title='Hola Mundo'/>
-        <Content>
-          <Person></Person>
-        </Content>
-        <Footer/>
-      </div>
-      </>
-    );
-  }
+  <div className="App">
+    <Header title="Routing" />
+      <Content>
+        {props.children}
+      </Content>
+    <Footer />
+  </div> 
+)
+
+App.propTypes = { 
+  children: element
 }
 
 export default App;
