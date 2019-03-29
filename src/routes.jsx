@@ -7,7 +7,9 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Calculadora from './components/Calculatorjuve/Calculatorjuve'
 import Notes2 from './components/Notes'
+import Coins from './components/Coins'
 import Error404 from './components/Error/404'
+
 
 const AppRoutes = () => (
   <App>
@@ -15,6 +17,7 @@ const AppRoutes = () => (
       <Route path="/" component={Home} exact />
       <Route path="/About" component={About} exact />
       <Route path="/Contact" component={Contact} exatc />
+      <Route path="/coins" component={Coins} exatc />
       <Route path="/Calculadora" component={Calculadora} exatc />
       <Route path="/notes" component={Notes2} exatc />
       <Route path="/notes/:noteId" component={Notes2} exact />

@@ -1,40 +1,46 @@
 import React, { Component } from 'react'
-import './Coins.css';
+import { array } from 'prop-types'
+
+// import { isFirstRender } from '../../shared/utils/frontend'
+
+import './Coins.css'
 
 class Coins extends Component {
-  constructor(){
-    super()
-
-    this.state ={
-      dollars: 0
-    }
+  static propTypes = {
+    coins: array
   }
 
-  shouldComponentUpdate(props, state){
-    return true
-  }
-
-  handleOnChange = e => {
-    this.setState({
-      dollars: Number(e.target.value || 0)
-    })
+  componentWillMount(){
+    const { fetchCoins } = this.props
+    fetchCoins()
   }
 
   render() {
+    const { result, fetching } = this.props
+    console.log({ result, fetching })
+    // if (isFirstRender(result)) {
+    //   return null
+    // }
     return (
-      <div>
-        <h1>Buy Crypto Coins!</h1>
-        <div className='question'>
-          <p>How much dollars do you have?</p>
-          <p>
-            <input placeholder='0' onChange={this.handleOnChange} type='text' /> 
-          </p>
-        </div>
-
-        <div className='asnwer'>
-          <p>Crypto Coin price: $10</p>
-          <p>You can buy <strong>{this.state.dollars / 10}</strong> coins </p>
-        </div>
+      <div className="Coins">
+        <h1>Top 100 Coins</h1>
+        {
+          !fetching && result.length > 0 && (
+            <ul>
+              {result.map((coin, key) => (
+                <li key={key}>
+                  <span className="left">
+                  {coin.rank} {coin.name} {coin.symbol}
+                  </span>
+                  <span className="right">${coin.price_usd}</span>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+        {
+          fetching && "Cargando..."
+        }
       </div>
     )
   }
